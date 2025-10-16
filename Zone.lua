@@ -51,12 +51,12 @@ function Zone:Start()
 			local wasInside = self._playersInZone[player.UserId]
 			if inside and not wasInside then
 				self._playersInZone[player.UserId] = true
-				self.Bus:Emit('PlayerEntered', self.Part.Name, player)
+				self.Bus:Emit('PlayerEntered', player, self.Part.Name)
 			elseif not inside and wasInside then
 				self._playersInZone[player.UserId] = nil
-				self.Bus:Emit('PlayerLeft', self.Part.Name, player)
+				self.Bus:Emit('PlayerLeft', player, self.Part.Name)
 			elseif inside and wasInside then
-				self.Bus:Emit('PlayerStaying', self.Part.Name, player)
+				self.Bus:Emit('PlayerStaying', player, self.Part.Name)
 			end
 		end
 	end))
