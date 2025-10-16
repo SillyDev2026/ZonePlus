@@ -1,12 +1,15 @@
 local Players = game:GetService('Players')
 local RunService = game:GetService('RunService')
+local Physics = game:GetService('PhysicsService')
+Physics:RegisterCollisionGroup('ZonePlayers')
+Physics:CollisionGroupSetCollidable('ZonePlayers', 'Default', false)
 
-local function setPlayerCanCollide(player: Player, canCollide)
-	local character = player.Character
-	if not character then return end
-	for _, part in ipairs(character:GetDescendants()) do
-		if part:IsA('Part') then
-			part.CanCollide = canCollide
+local function setPlayerCollision(player: Player, groupName: string)
+	if player.Character then
+		for _, part in ipairs(player.Character:GetDescendants()) do
+			if part:IsA('BasePart') then
+				part.CollisionGroup = groupName
+			end
 		end
 	end
 end
@@ -59,15 +62,15 @@ function Zone:Start()
 				self._playersInZone[player.UserId] = {elapsed = 0}
 				self.Bus:Emit('PlayerEntered', player, self.Part.Name)
 				self.Bus:Emit('PlayerStaying', player, self.Part.Name)
-				setPlayerCanCollide(player, false)
+				setPlayerCollision(player, 'ZonePlayers')
 			elseif not inside and timer then
 				self._playersInZone[player.UserId] = nil
 				self.Bus:Emit('PlayerLeft', player, self.Part.Name)
-				setPlayerCanCollide(player, true)
+				setPlayerCollision(player, 'Default')
 			elseif inside and timer then
 				timer.elapsed = timer.elapsed + deltaTime
 				if timer.elapsed >= self._interval then
-					setPlayerCanCollide(player, false)
+					setPlayerCollision(player, 'ZonePlayers')
 					self.Bus:Emit('PlayerStaying', player, self.Part.Name)
 					timer.elapsed = 0
 				end
@@ -76,13 +79,19 @@ function Zone:Start()
 	end))
 end
 
-function Zone:Stop()
+function Zone:Stop ()
 	if not self.running then return end
 	self.running = false
 	for _, con in ipairs(self.Connections) do
 		con:Disconnect()
 	end
 	table.clear(self._connections)
+	for userId, _ in pairs(self._playersInZone) do
+		local player = Players:GetPlayerByUserId(userId)
+		if player then
+			setPlayerCollision(player, 'Default')
+		end
+	end
 	table.clear(self._playersInZone)
 end
 
