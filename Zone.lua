@@ -7,7 +7,6 @@ local function setPlayerCanCollide(player: Player, canCollide)
 	for _, part in ipairs(character:GetDescendants()) do
 		if part:IsA('Part') then
 			part.CanCollide = canCollide
-			print(part.CanCollide)
 		end
 	end
 end
