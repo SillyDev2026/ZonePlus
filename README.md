@@ -1,2 +1,3 @@
-<img width="200" height="83" alt="image" src="https://github.com/user-attachments/assets/5a8c26de-7876-4142-a8fb-062383dc5d2f" />
+<img width="277" height="159" alt="image" src="https://github.com/user-attachments/assets/f547df6d-86f1-4314-8b0a-04176037e999" />
+
 this is how u would setup the Zone Register
