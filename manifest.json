@@ -1,0 +1,21 @@
+{
+  "Classes": {},
+  "Folder": {
+    "Modules": {
+      "ClassSystem": {
+        "ClassName": "ModuleScript"
+      },
+      "EventBus": {
+        "ClassName": "ModuleScript"
+      },
+      "Signal": {
+        "ClassName": "ModuleScript"
+      }
+    },
+    "ZonePlus": {
+      "Zone": {
+        "ClassName": "ModuleScript"
+      }
+    }
+  }
+}
