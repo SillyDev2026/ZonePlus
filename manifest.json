@@ -1,10 +1,15 @@
 {
-  "Modules": {
-    "ClassSystem": { "ClassName": "ModuleScript" },
-    "EventBus": { "ClassName": "ModuleScript" },
-    "Signal": { "ClassName": "ModuleScript" }
+  "Server": {
+    "Example": { "ClassName": "Script" }
   },
-  "ZonePlus": {
-    "Zone": { "ClassName": "ModuleScript" }
+  "Shared": {
+    "Modules": {
+      "ClassSystem": { "ClassName": "ModuleScript" },
+      "EventBus": { "ClassName": "ModuleScript" },
+      "Signal": { "ClassName": "ModuleScript" }
+    },
+    "ZonePlus": {
+      "Zone": { "ClassName": "ModuleScript" }
+    }
   }
 }
