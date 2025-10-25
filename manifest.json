@@ -9,6 +9,7 @@
       "Signal": { "ClassName": "ModuleScript" }
     },
     "ZonePlus": {
+      "ZonePlus": { "ClassName": "ModuleScript" },
       "Zone": { "ClassName": "ModuleScript" }
     }
   }
