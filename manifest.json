@@ -9,8 +9,10 @@
       "Signal.luau": { "ClassName": "ModuleScript" }
     },
     "ZonePlus": {
-      "ZonePlus.luau": { "ClassName": "ModuleScript" },
-      "Zone.luau": { "ClassName": "ModuleScript" }
+      "ZonePlus.luau": {
+        "ClassName": "ModuleScript",
+        "Zone.luau": { "ClassName": "ModuleScript" }
+    }
     }
   }
 }
