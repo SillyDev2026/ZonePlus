@@ -4,13 +4,13 @@
   },
   "Shared": {
     "Modules": {
-      "ClassSystem": { "ClassName": "ModuleScript" },
-      "EventBus": { "ClassName": "ModuleScript" },
-      "Signal": { "ClassName": "ModuleScript" }
+      "ClassSystem.luau": { "ClassName": "ModuleScript" },
+      "EventBus.luau": { "ClassName": "ModuleScript" },
+      "Signal.luau": { "ClassName": "ModuleScript" }
     },
     "ZonePlus": {
-      "ZonePlus": { "ClassName": "ModuleScript" },
-      "Zone": { "ClassName": "ModuleScript" }
+      "ZonePlus.luau": { "ClassName": "ModuleScript" },
+      "Zone.luau": { "ClassName": "ModuleScript" }
     }
   }
 }
